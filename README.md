@@ -1,66 +1,178 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Motorcare Service Reminder System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based vehicle service management system designed for automotive service centers in Uganda. Track customers, vehicles, service schedules, and send automated reminder notifications.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Dashboard
+- Welcome greeting with current date
+- Overview cards: Total Customers, Registered Vehicles, Upcoming Services, Overdue Services
+- Quick action buttons for common tasks
+- Overdue services alert section
+- Monthly service trends chart
+- Service types distribution pie chart
+- Recently added customers list
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Customer Management
+- Full CRUD operations for customers
+- Search by name, email, phone, address
+- Filter by status (active/inactive)
+- View customer details with associated vehicles
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Vehicle Management
+- Full CRUD operations for vehicles
+- Search by make, model, registration number, VIN
+- Filter by customer
+- Track last service date and next service date
+- View complete service history per vehicle
 
-## Learning Laravel
+### Service Records
+- Log completed services with cost tracking
+- Search by vehicle, service type
+- Filter by status and date range
+- Track service history per vehicle
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Service Scheduling
+- Schedule upcoming services for vehicles
+- Track expected mileage at service
+- Status tracking: Pending, Notified, Confirmed, Completed, Cancelled
+- Overdue services detection and view
+- Send reminder notifications to customers
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Service Types
+- Define service types with base pricing
+- Set estimated hours for each service
+- Activate/deactivate service types
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Roles & Permissions
+- Role-based access control (Admin, Staff, etc.)
+- Granular permission system
+- Assign permissions to roles
+- Assign roles to users
 
-## Laravel Sponsors
+### Settings
+- Database-backed settings storage
+- General settings management
+- System configuration options
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Reminder Notifications
+- Send SMS/Email reminders for upcoming services
+- Track notification attempts
+- Last notification timestamp per schedule
 
-### Premium Partners
+## Modules
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+| Module | Description |
+|--------|-------------|
+| Customers | Manage customer accounts and contact information |
+| Vehicles | Track vehicles with make, model, year, registration, VIN |
+| Services | Record completed services with cost and date |
+| Service Schedules | Schedule future services and track overdue items |
+| Service Types | Define service categories with pricing |
+| Roles | Role definitions with associated permissions |
+| Permissions | Permission definitions for access control |
+| Settings | System-wide configuration storage |
 
-## Contributing
+## Tech Stack
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Framework:** Laravel 10.x
+- **Frontend:** AdminLTE 3.x, Bootstrap 4.x, Chart.js
+- **Database:** MySQL/MariaDB
+- **Authentication:** Laravel Breeze
 
-## Code of Conduct
+## Installation
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Clone the repository:
+```bash
+git clone https://github.com/mycosoft/motorcare-service-reminder.git
+cd motorcare-service-reminder
+```
 
-## Security Vulnerabilities
+2. Install dependencies:
+```bash
+composer install
+npm install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. Copy environment file:
+```bash
+cp .env.example .env
+```
+
+4. Generate application key:
+```bash
+php artisan key:generate
+```
+
+5. Configure database in `.env`:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=motorcare_service_reminder
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
+
+6. Run migrations and seeders:
+```bash
+php artisan migrate:fresh --seed
+```
+
+7. Create admin user:
+```bash
+php artisan make:user-admin
+```
+
+8. Start the development server:
+```bash
+php artisan serve
+```
+
+## Default Credentials
+
+After running seeders and creating admin user:
+- **Email:** admin@motorcare.com
+- **Password:** password
+
+## Usage
+
+### Dashboard
+Access the dashboard at `/dashboard` after login to see:
+- Service overview statistics
+- Overdue services alerts
+- Upcoming service reminders
+- Monthly service trends
+
+### Managing Customers
+1. Navigate to Customers from sidebar
+2. Click "Add Customer" for new entries
+3. Use search and filters to find customers
+4. Click customer name to view details
+
+### Scheduling Services
+1. Go to Service Schedules
+2. Click "Schedule New Service"
+3. Select vehicle and service type
+4. Set scheduled date and expected mileage
+5. Save to create schedule
+
+### Sending Reminders
+1. Go to Service Schedules
+2. Find a schedule without recent notification
+3. Click the bell icon to send reminder
+4. Or use "Send Reminders" quick action from dashboard
+
+## Data Seeding
+
+The system seeds with:
+- **Permissions:** 33 system permissions
+- **Roles:** Admin and Staff with appropriate permissions
+- **Sample Customers:** Ugandan names (John Muwonge, Sarah Nansubuga)
+- **Sample Vehicles:** Various Ugandan vehicle registrations
+- **Service Types:** Oil Change, Tire Rotation, Full Service, etc.
+- **Service Records:** Historical service data
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software.
