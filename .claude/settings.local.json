@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan *)",
+      "Bash(composer dump-autoload *)",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(ls \"c:/Users/MYCOSOFT/AppData/Local/GitHubDesktop/\" 2>/dev/null | head -10)",
+      "Read(//c/Users/MYCOSOFT/AppData/Local/GitHubDesktop/**)",
+      "Bash(\"c:/Users/MYCOSOFT/AppData/Local/GitHubDesktop/bin/gh\" auth *)",
+      "Bash(env)"
+    ]
+  }
+}
